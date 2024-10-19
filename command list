@@ -1,0 +1,57 @@
+cd .ssh
+ls
+ssh-keygen
+ls
+cat d_ed25519
+ls
+cat d_ed25519
+ls
+cd .ssh
+cat id_ed25519
+cat id_ed25519.pub
+ls
+cat id_ed25519
+pwd
+cat id_ed25519.pub
+vim authorized_keys
+exit
+sudo passwd ubuntu
+cd /etc/ssh
+ls
+sudo vim sshd_config
+sudo service ssh restart
+cd
+cd .ssh
+ls
+vim authorized_keys
+ssh -i id_ed25519 ubuntu@ec2-13-234-35-221.ap-south-1.compute.amazonaws.com
+chmod 400 id_ed25519
+ssh -i id_ed25519 ubuntu@ec2-13-234-35-221.ap-south-1.compute.amazonaws.com
+ls -l
+mkdir git-for-devops
+cd git-for-devops
+git init
+touch one.txt two.txt three.txt
+git add one.txt
+git add three.txt two.txt
+git commit -m "Added"
+git status
+git config --global user.name "rupeshkumargithub"
+git config --global user.email "rupeshkumar.imps.ce@gmail.com"
+touch four.txt
+git add .
+git commit -m "done"
+git status
+git log
+git branch
+git checkout -b devops
+git branch
+touch apna
+git add apna
+git commit -m "desh"
+git log
+git config --global user.name "rupeshkumargithub"
+git branch
+git checkout master
+git branch
+history
