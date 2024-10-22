@@ -1,0 +1,122 @@
+# Edit the hostname of the machine
+vim /etc/hostname
+
+# Restart the system to apply changes
+init 6
+
+# List all running Docker containers
+docker ps
+
+# List all Docker images
+docker images
+
+# Show the current working directory
+pwd
+
+# Clear the terminal screen
+clear
+
+# Run a Tomcat container in detached mode and map port 7070 on the host to port 8080 in the container
+docker run -d --name mytomcat -p 7070:8080 tomcat
+
+# Check running containers to confirm mytomcat is running
+docker ps
+
+# Run a Jenkins container in detached mode and map port 8080 on the host to port 8080 in the container
+docker run -d --name myjenkins -p 8080:8080 jenkins/jenkins
+
+# Check running containers again to confirm myjenkins is running
+docker ps
+
+# Forcefully remove stopped containers with specified IDs
+docker rm -f aeec450e53b6 abdbcfbba14
+
+# Remove another stopped container by its ID
+docker rm -f 8572755b916e
+
+# Clear the terminal screen
+clear
+
+# Run an Nginx container in detached mode with random host ports mapped
+docker run -d --name appserver -P nginx
+
+# Show the port mappings for the appserver container
+docker port appserver
+
+# Display the Docker version installed on the system
+docker --version
+
+# Run a BusyBox container interactively (-it allows you to interact with the container's shell)
+docker run --name mybox -it busybox
+
+# Check running containers after starting mybox
+docker ps
+
+# Show all containers, including stopped ones
+docker ps -a
+
+# Remove a stopped container by its ID
+docker rm ac40a44b5f72
+
+# Run another BusyBox container interactively
+docker run --name mybox -it busybox
+
+# Run a new BusyBox container with a link to the existing mybox container for communication
+docker run --name mybox1 --link mybox:rupesh -it busybox
+
+# Check running containers after starting mybox1
+docker ps
+
+# Clear the terminal screen
+clear
+
+# List all containers including stopped ones
+docker ps -a
+
+# List running containers using the more modern `docker container ls` command
+docker container ls
+
+# Stop multiple containers by their IDs
+docker stop 1218f1ac2924 995d335c8cc b47c05a5fc85
+
+# Remove the stopped containers by their IDs
+docker rm 1218f1ac2924 995d335c8cc b47c05a5fc85
+
+# Run a MySQL container with a specified root password
+docker run --name mydb -e MYSQL_ROOT_PASSWORD=rupesh mysql:latest
+
+# Forcefully remove another stopped container by its ID
+docker rm f7df610b0448
+
+# Clear the terminal screen
+clear
+
+# Run the MySQL container in detached mode so it runs in the background
+docker run --name mydb -d -e MYSQL_ROOT_PASSWORD=rupesh mysql:latest
+
+# Run a WordPress container and link it to the running mydb container for database access
+docker run --name mypress -d -p 7080:80 --link mydb:mysql wordpress
+
+# Ping the mydb container from the host or another container to test connectivity
+ping mydb
+
+# Remove all containers forcefully using their IDs
+docker rm -f $(docker ps -aq)
+
+# List all running containers using the modern command
+docker container ls
+
+# Show all containers, including stopped ones
+docker ps -a
+
+# Clear the terminal screen
+clear
+
+# Run a MySQL container again in detached mode with a specified root password
+docker run --name mydb -d -e MYSQL_ROOT_PASSWORD=rupesh mysql:latest
+
+# Run a Tomcat container, link it to the mydb container, and map port 8888 on the host to port 8080 in the container
+docker run --name apache -d -p 8888:8080 --link mydb:mysql tomcat
+
+# Inspect the details of the running apache container, such as IP address, configuration, and more
+docker inspect apache
