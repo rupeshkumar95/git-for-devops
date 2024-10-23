@@ -120,3 +120,5 @@ docker run --name apache -d -p 8888:8080 --link mydb:mysql tomcat
 
 # Inspect the details of the running apache container, such as IP address, configuration, and more
 docker inspect apache
+
+###### Volume preserve DATA not software and Inage preserve software inside the container#########
