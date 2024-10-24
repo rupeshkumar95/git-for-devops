@@ -5,3 +5,7 @@ It's fun learing github.
 Now learn something else
 
 git remote set-url origin ssh url link.
+
+To pull the changes from remote to local use:
+
+git pull origin main(branch name of the remote repo)
