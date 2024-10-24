@@ -2,4 +2,6 @@ We can store our code on github
 
 It's fun learing github.
 
-Now learn something else.
+Now learn something else
+
+git remote set-url origin ssh url link.
