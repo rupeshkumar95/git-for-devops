@@ -3,3 +3,6 @@ lets check whether test branch is new branch
 # To push the commited file of test branch on remote repo use below command
 
 git push --set-upstream origin test
+
+
+Here in origin test, test is the name of branch.
